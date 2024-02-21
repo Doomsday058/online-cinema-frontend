@@ -1,0 +1,39 @@
+/* src/styles/CardDetails.css */
+.details-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.details-poster {
+  flex-shrink: 0; /* Don't allow the image to shrink */
+  width: 40%; /* Set a fixed width for the image */
+}
+
+.details-content {
+  flex-grow: 0;
+  max-width: 40%; /* Limit the width of the details */
+}
+
+.details-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.details-summary {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.details-img {
+    width: 43%;
+    margin-right: 30px;
+  }
+
+  .details-info {
+    width: 60%;
+    text-align:right;
+  }

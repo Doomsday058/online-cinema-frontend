@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "commander": "^11.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.3",
+    "sequelize": "^6.34.0",
+    "socket.io": "^4.7.2",
+    "ws": "^8.14.2"
+  }
+}

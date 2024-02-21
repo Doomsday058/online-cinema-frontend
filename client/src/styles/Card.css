@@ -1,0 +1,42 @@
+/* src/styles/Card.css */
+.card {
+  width: 280px; /* Increased width */
+  margin: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px var(--card-shadow);
+}
+
+.card-poster {
+  width: 100%;
+  display: block;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-title, .card-rating {
+  font-family: 'Montserrat', sans-serif;
+  margin: 1 rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center; /* Центрирование текста */
+}
+
+.card-rating {
+  position: absolute; /* Position the rating at the bottom */
+  bottom: 10px; /* Distance from the bottom */
+  left: 0;
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --card-background: #1e1e1e;
+  --card-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  --rating-color: #ffca28;
+  --link-color: #bb86fc;
+  --footer-background-color: #282c34;
+  --icon-color: #3b5998;
+  --header-height: 60px;
+  --footer-height: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* src/App.css */
+.page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align:center;
+  margin: 10px auto;
+  padding-top:inherit;
+}
+
+.register-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

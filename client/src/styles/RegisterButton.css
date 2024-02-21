@@ -1,0 +1,19 @@
+/* src/styles/RegisterButton.css */
+.register-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif; /* Изменение шрифта кнопки */
+  font-weight: 600; /* Делаем шрифт полужирным */
+  font-size: 1.1rem; /* Увеличиваем размер шрифта */
+}
+
+.register-btn:hover {
+  background-color: #e6a117; /* Темнее оттенок акцентного цвета */
+}

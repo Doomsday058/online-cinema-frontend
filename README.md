@@ -17,6 +17,6 @@ FilmAdvicer - это онлайн-кинотеатр, разработанный
 1. Клонировать репозиторий: `git clone https://github.com/your/repository.git`
 2. Установить зависимости: `npm install`
 3. Запустить frontend: `npm start`
-4. Запустить backend: `npm run server`
+4. Запустить backend: `node app.js`
 5. Открыть приложение в браузере: `http://localhost:3000`
 

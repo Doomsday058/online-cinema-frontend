@@ -350,6 +350,7 @@ sequelize.sync().then(() => {
 
 module.exports = {
   User,
-  Card,
+  Movie,
+  Serial,
   sequelize
 };

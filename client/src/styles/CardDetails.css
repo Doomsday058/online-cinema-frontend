@@ -36,7 +36,7 @@
   padding: 40px 60px;
   display: flex;
   align-items: left;
-  max-width: 40%; /* Limit the width of the details */
+  max-width: 50%; /* Limit the width of the details */
 }
 
 .details-title {
@@ -77,4 +77,49 @@
     margin-left: 160px;
     text-align: left;
     margin-bottom: 10px;
+  }
+
+
+  .ai-review-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .ai-review-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .ai-review {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--card-background); /* Используем фоновый цвет карточек */
+    color: var(--text-color); /* Текстовый цвет, соответствующий теме */
+    border-radius: 8px; /* Легкое скругление углов */
+    box-shadow: var(--card-shadow); /* Тенюшка, как у карточек, для единого стиля */
+    line-height: 1.5;
+    max-height: 300px; /* Ограничение по высоте, если текст очень длинный */
+    overflow-y: auto; /* Прокрутка, если текст превышает высоту */
+  }
+
+  .ai-review p {
+    white-space: pre-wrap; /* Чтобы переносить длинные строки корректно */
+    word-break: break-word; /* Разбивать слишком длинные слова */
+  }
+
+  .ai-review h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    margin-top: 20px;
+    color: red;
   }

@@ -1,0 +1,22 @@
+/* src/styles/UserProfile.css */
+
+.user-profile-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.user-profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}

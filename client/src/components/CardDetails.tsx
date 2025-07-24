@@ -1,53 +1,82 @@
+// src/components/CardDetails.tsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/CardDetails.css';
 
 interface CardDetailsProps {
-  type: 'movie' | 'serial'; // Добавлено поле для определения типа контента
+  type: 'movie' | 'serial';
 }
 
 interface CardDetailsData {
   id: number;
-  title: string;
-  poster_url: string;
-  rating: number;
-  description: string;
-  production_year: number;
-  duration: number;
-  country: string;
-  genre: string;
-  director: string;
-  age_rating: number;
-  main_roles: string;
+  title?: string;  // Для фильмов
+  name?: string;   // Для сериалов
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+  release_date?: string;  // Для фильмов
+  first_air_date?: string;  // Для сериалов
+  runtime?: number;
+  episode_run_time?: number[];  // Время эпизода для сериалов
+  genres: { name: string }[];
 }
 
 const CardDetails: React.FC<CardDetailsProps> = ({ type }) => {
   const { id } = useParams<{ id: string }>();
   const [data, setData] = useState<CardDetailsData | null>(null);
+  const [aiReview, setAiReview] = useState<string | null>(null);
+  const [loadingReview, setLoadingReview] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!id) {
-          throw new Error(`${type} ID is missing`);
-        }
-
-        const response = await fetch(`http://localhost:8000/api/${type}s/${id}`);
+        const endpoint = type === 'movie' ? 'movies' : 'series'; 
+        const response = await fetch(`http://localhost:8000/api/${endpoint}/${id}`);
         if (!response.ok) {
           throw new Error(`Failed to fetch ${type}`);
         }
-
+  
         const data: CardDetailsData = await response.json();
         setData(data);
       } catch (error) {
         console.error(`Error fetching ${type}:`, error);
+        setError(`Не удалось получить данные о ${type}.`);
       }
     };
-
+  
     if (id) {
       fetchData();
     }
   }, [id, type]);
+
+  const handleGenerateReview = async () => {
+    if (!id || !data) return;
+
+    setLoadingReview(true);
+    setError(null);
+    setAiReview(null);
+
+    try {
+      const response = await fetch(`http://localhost:5000/generate_review/${id}?type=${type === 'serial' ? 'serial' : 'movie'}`);
+      if (!response.ok) {
+        throw new Error('Failed to generate review');
+      }
+
+      const result = await response.json();
+      setAiReview(result.review);
+    } catch (err: any) {
+      console.error('Error generating review:', err);
+      setError(err.message || 'Error generating review');
+    } finally {
+      setLoadingReview(false);
+    }
+  };
+
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
 
   if (!data) {
     return <div>Loading...</div>;
@@ -56,31 +85,37 @@ const CardDetails: React.FC<CardDetailsProps> = ({ type }) => {
   return (
     <div className="details-container">
       <div className="details__img-wrapper">
-      <img className="details-poster" src={data.poster_url} alt={data.title} />
+        <img className="details-poster" src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt={data.title || data.name} />
       </div>
       <div className="details-content">
-        <h2 className="details-title">{data.title}</h2>
-        <p className="details-summary">{data.description}</p>
+        <h2 className="details-title">{data.title || data.name}</h2>
+        <p className="details-summary">{data.overview}</p>
         <div className="details-wrapper">
-        <dl className="details-dl">
-          <dt className="details-dt">Rating</dt>
-          <dd className="details-dd">{data.rating}</dd>
-          <dt className="details-dt">Production Year</dt>
-          <dd className="details-dd">{data.production_year}</dd>
-          <dt className="details-dt">Duration</dt>
-          <dd className="details-dd">{data.duration} minutes</dd>
-          <dt className="details-dt">Country</dt>
-          <dd className="details-dd">{data.country}</dd>
-          <dt className="details-dt">Genre</dt>
-          <dd className="details-dd">{data.genre}</dd>
-          <dt className="details-dt">Director</dt>
-          <dd className="details-dd">{data.director}</dd>
-          <dt className="details-dt">Age Rating</dt>
-          <dd className="details-dd">{data.age_rating}</dd>
-          <dt className="details-dt">Main Roles</dt>
-          <dd className="details-dd">{data.main_roles}</dd>
-        </dl>
+          <dl className="details-dl">
+            <dt className="details-dt">Rating</dt>
+            <dd className="details-dd">{data.vote_average}</dd>
+            <dt className="details-dt">{type === 'movie' ? 'Release Date' : 'First Air Date'}</dt>
+            <dd className="details-dd">{data.release_date || data.first_air_date}</dd>
+            <dt className="details-dt">Runtime</dt>
+            <dd className="details-dd">{type === 'movie' ? `${data.runtime} minutes` : `${data.episode_run_time ? data.episode_run_time[0] : ''} minutes`}</dd>
+            <dt className="details-dt">Genres</dt>
+            <dd className="details-dd">
+              {data.genres.map((genre) => (
+                <div key={genre.name}>{genre.name}</div>
+              ))}
+            </dd>
+          </dl>
         </div>
+        <button onClick={handleGenerateReview} disabled={loadingReview} className="ai-review-button">
+          {loadingReview ? 'Генерация обзора...' : 'Обзор от AI'}
+        </button>
+        {error && <div className="error-message">{error}</div>}
+        {aiReview && (
+          <div className="ai-review">
+            <h3>Обзор от AI:</h3>
+            <p>{aiReview}</p>
+          </div>
+        )}
       </div>
     </div>
   );

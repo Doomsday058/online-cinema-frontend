@@ -58,3 +58,31 @@
   width: 100%;
   text-align: center;
 }
+
+.card-favorite {
+  position: absolute;
+  top: auto;
+  right: 10px; /* Расстояние от правого края карточки */
+  bottom: 10px; /* Расстояние от нижнего края карточки */
+  cursor: pointer; /* Курсор в виде руки при наведении */
+}
+
+.favorite-icon:hover {
+  transform: scale(1.1); /* Увеличение иконки при наведении */
+  transition: transform 0.2s ease-in-out; /* Плавность эффекта наведения */
+}
+
+/* Добавьте эти стили если ещё не добавили для .selected */
+.selected {
+  color: red; /* или другой стиль для выделенной иконки */
+}
+
+.favorite-icon.animate {
+  animation: favoriteAnim 0.3s ease;
+}
+
+@keyframes favoriteAnim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}

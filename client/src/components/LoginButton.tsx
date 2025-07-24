@@ -6,10 +6,10 @@ interface LoginButtonProps {
   onClick: () => void; // Добавляем тип для нового пропа onClick
 }
 
-const LoginButton: React.FC<LoginButtonProps> = ({ onClick }) => { // Деструктуризация пропа onClick из props
+const LoginButton: React.FC<LoginButtonProps> = ({ onClick }) => {
   return (
     <button className="login-btn" onClick={onClick}>
-      Login/Register
+      Вход/Регистрация
     </button>
   );
 };

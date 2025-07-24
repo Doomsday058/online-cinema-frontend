@@ -1,38 +1,32 @@
 /* src/styles/NavBar.css */
-.navbar {
-  background-color: #222;
-  padding: 10px 0;
-  margin-bottom: 50px;
-}
-
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px; /* Provide some space between nav items */
-  justify-content: space-around;
-  align-items: center;
+  gap: 30px; /* Пространство между элементами навигации */
+  justify-content: space-around; /* Выравнивание элементов по горизонтали */
+  align-items: center; /* Выравнивание элементов по вертикали */
+  background-color: #212121; /* Оттенок светлее фона сайта */
+  padding: 20px; /* Увеличить внутренние отступы для лучшего визуального эффекта */
 }
+
+
 .nav-links a {
-  font-size: 1.6rem; /* Увеличьте размер шрифта */
-  font-weight: bold; /* Сделайте текст жирным */
-  /* Остальные стили оставьте без изменения */
+  font-family: 'Montserrat', sans-serif; /* Футуристичный шрифт */
+  font-size: 30px;
+  color: #FFFFFF; /* Белый цвет для высокого контраста */
+  text-transform: uppercase; /* Все буквы заглавные */
+  letter-spacing: 1.5px; /* Увеличить расстояние между буквами */
+  padding: 8px 16px; /* Увеличить внутренние отступы для лучшего визуального эффекта */
+  border: 2px solid a; /* Граница желтого цвета */
+  background-image: linear-gradient(45deg,gray 50%, transparent 50%); /* Градиентный фон */
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 0.5s ease-out, color 0.5s ease-out; /* Плавный эффект перехода */
+  text-decoration: none; /* Убрать подчеркивание */
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: var(--link-color);
-  padding: 5px 10px;
-  transition: color 0.3s ease;
+.nav-links a:hover {
+  background-position: 0; /* Изменить положение фона при наведении */
+  color: #000000; /* Цвет текста при наведении - черный */
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: var(--rating-color);
-}
-
-.subtitles {
-  font-size: 1.5rem; /* Bigger subtitles */
-  margin: 20px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}

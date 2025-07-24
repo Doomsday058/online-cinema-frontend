@@ -1,24 +1,28 @@
-/* src/components/NavBar.tsx */
+// src/components/NavBar.tsx
 import React from 'react';
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
- // Создайте и настройте соответствующие стили
 
 const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
       <ul className="nav-links">
-      <li>
-          <Link to="/" className="nav9-link">Movies</Link> {/* используйте класс 'nav-link', если он у вас есть */}
+        <li>
+          <Link to="/" className="nav-link">Home</Link>
+        </li>
+        <li>
+          <Link to="/movies" className="nav-link">Films</Link>
         </li>
         <li>
           <Link to="/serials" className="nav-link">Serials</Link>
         </li>
-        <li><a href="/rated">Rated</a></li>
-        {/* Добавьте дополнительные ссылки по мере необходимости */}
+        {/* Удаляем ссылку на профиль */}
+        {/* <li>
+          <Link to="/profile" className="nav-link">Профиль</Link>
+        </li> */}
       </ul>
     </nav>
   );
-}
+};
 
 export default NavBar;

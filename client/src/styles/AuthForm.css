@@ -1,60 +1,101 @@
-/* AuthForm.css */
-.auth-elements {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+/* src/styles/AuthForm.css */
 
-/* Style for the greeting message */
-.greeting-message {
-  color: white;
-  background-color: #333;
-  padding: 10px 15px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .auth-form-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  border: 1px solid #666;
-  border-radius: 5px;
+  background-color: var(--card-background);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  width: 90%;
+  max-width: 400px;
+  color: var(--text-color);
 }
 
-.auth-form-container label {
-  display: block;
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
   margin-bottom: 5px;
-  color: white;
+  font-weight: 600;
 }
 
-.auth-form-container input {
-  width: 100%;
-  padding: 5px;
+.form-group input {
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.error-message {
+  color: #ff4d4f;
   margin-bottom: 10px;
-  background-color: #666;
-  color: white;
-  border: 1px solid #666;
+  text-align: center;
 }
 
-.auth-form-container button {
-  width: 100%;
-  padding: 5px;
-  background-color: #007bff;
-  color: white;
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-button, .toggle-button {
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-.auth-form-container button:hover {
+.auth-button {
+  background-color: var(--accent-color);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
   background-color: #0056b3;
+}
+
+.toggle-button {
+  background-color: transparent;
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.toggle-button:hover {
+  color: #ffca28;
 }

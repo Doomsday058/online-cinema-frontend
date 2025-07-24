@@ -1,1 +1,7 @@
-/node_modules
+.idea/
+.vscode/
+node_modules/
+.env
+*.sqlite
+.DS_Store
+Thumbs.db

@@ -3,6 +3,7 @@
 
 ### ➡️ **[Посмотреть живое демо (Live Demo)](https://doomsday058.github.io/online-cinema-frontend/)**
 
+### 🧠 **[Ссылка на репозиторий flask-сервера](https://github.com/Doomsday058/online-cinema-flask.git)**
 ### 🧠 **[Ссылка на репозиторий бэкенд-сервера](https://github.com/Doomsday058/online-cinema-backend)**
 
 ---

@@ -1,0 +1,32 @@
+/* src/styles/NavBar.css */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px; /* Пространство между элементами навигации */
+  justify-content: space-around; /* Выравнивание элементов по горизонтали */
+  align-items: center; /* Выравнивание элементов по вертикали */
+  background-color: #212121; /* Оттенок светлее фона сайта */
+  padding: 20px; /* Увеличить внутренние отступы для лучшего визуального эффекта */
+}
+
+
+.nav-links a {
+  font-family: 'Montserrat', sans-serif; /* Футуристичный шрифт */
+  font-size: 30px;
+  color: #FFFFFF; /* Белый цвет для высокого контраста */
+  text-transform: uppercase; /* Все буквы заглавные */
+  letter-spacing: 1.5px; /* Увеличить расстояние между буквами */
+  padding: 8px 16px; /* Увеличить внутренние отступы для лучшего визуального эффекта */
+  border: 2px solid a; /* Граница желтого цвета */
+  background-image: linear-gradient(45deg,gray 50%, transparent 50%); /* Градиентный фон */
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 0.5s ease-out, color 0.5s ease-out; /* Плавный эффект перехода */
+  text-decoration: none; /* Убрать подчеркивание */
+}
+
+.nav-links a:hover {
+  background-position: 0; /* Изменить положение фона при наведении */
+  color: #000000; /* Цвет текста при наведении - черный */
+}
+

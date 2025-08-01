@@ -1,0 +1,35 @@
+/* src/styles/Footer.css */
+.footer {
+  background-color: #212121; /* Более темный цвет фона */
+  color: #fff; /* Белый цвет текста */
+  padding: 20px;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif; /* Пример использования шрифта Roboto из Google Fonts */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-icon {
+  font-size: 2rem;
+  color: #00bcd4; /* Цвет иконок */
+  transition: color 0.3s ease; /* Плавное изменение цвета при наведении курсора */
+}
+
+.footer-icon:hover {
+  color: #ffeb3b; /* Новый цвет иконок при наведении курсора */
+}
+
+.footer-text {
+  font-size: 1rem;
+  font-weight: 500; /* Увеличение жирности текста */
+  letter-spacing: 1px; /* Увеличение расстояния между буквами */
+}

@@ -1,0 +1,140 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --card-background: #1e1e1e;
+  --card-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  --rating-color: #ffca28;
+  --link-color: #bb86fc;
+  --footer-background-color: #282c34;
+  --icon-color: #3b5998;
+  --header-height: 60px;
+  --footer-height: 100px;
+  --search-bar-background: #1e1e1e;
+  --search-bar-border: #3b3b3b;
+  --search-bar-text: #ffffff;
+  --search-bar-placeholder: #7a7a7a;
+  --search-button-background: #ffca28;
+  --search-button-text: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  justify-content: space-between;
+}
+
+.page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center; /* Центрирование */
+  padding: 100; /* Убрать padding-left совсем */
+  margin: 10px 0; /* Уменьшаем расстояние между заголовком и поиском */
+}
+
+/* Шапка сайта */
+.header-content {
+  display: flex;
+  flex-direction: column; /* Элементы идут по вертикали */
+  align-items: center; /* Центрирование по горизонтали */
+  justify-content: center;
+  width: 100%;
+  gap: 15px; /* Расстояние между элементами */
+}
+
+.auth-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем элементы */
+  position: absolute;
+  right: 20px; /* Устанавливаем отступ справа */
+  top: 20px; /* Фиксируем сверху */
+  gap: 10px; /* Промежуток между элементами */
+}
+/* Главный контент */
+.main-content{
+  min-height: 100vh;
+}
+
+/* Иконка выхода */
+.logout-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.logout-icon:hover {
+  filter: brightness(0.8);
+}
+
+/* Меню пользователя */
+.user-menu .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu .avatar-icon {
+  color: var(--icon-color);
+}
+
+.username {
+  margin-left: 8px;
+}
+
+/* Строка поиска */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px; /* Сокращаем отступ */
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  border: 1px solid var(--search-bar-border);
+  border-radius: 25px;
+  background-color: var(--search-bar-background);
+  color: var(--search-bar-text);
+}
+.search-bar input::placeholder {
+  color: var(--search-bar-placeholder);
+}
+
+.search-bar input:focus {
+  border-color: var(--link-color);
+}
+
+.search-bar button {
+  margin-left: -505px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--search-button-background);
+  color: var(--search-button-text);
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: var(--search-button-hover);
+}
+
+.star-icon {
+  margin-left: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc; /* Бесцветная иконка */
+  transition: color 0.3s;
+}

@@ -1,0 +1,99 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 60%;
+  max-width: 600px;
+  padding: 12px 60px 12px 20px; /* Чуть больше места справа для двух иконок */
+  border: 1px solid var(--search-bar-border);
+  border-radius: 25px;
+  background-color: var(--search-bar-background);
+  color: var(--search-bar-text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  position: relative;
+}
+
+.search-bar input::placeholder {
+  color: var(--search-bar-placeholder);
+}
+
+.search-bar input:focus {
+  border-color: var(--link-color);
+}
+
+/* Кнопка лупы (обычный поиск) */
+.search-bar button {
+  position: absolute;
+  right: 930px; 
+  background: none;
+  border: none;
+  color: var(--search-button-text);
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.search-bar button:hover {
+  color: var(--search-button-hover);
+}
+
+/* Иконка продвинутого поиска */
+.advanced-icon-container {
+  position: absolute;
+  right: 810px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.advanced-icon {
+  font-size: 1.5rem;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.advanced-icon.active {
+  color: var(--search-button-background);
+}
+
+.advanced-icon:hover {
+  color: var(--search-button-background);
+}
+
+/* Текстовый лейбл рядом с иконкой продвинутого поиска */
+.advanced-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+.advanced-icon-container:hover .advanced-label {
+  color: var(--search-button-background);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 80%;
+    max-width: 400px;
+    padding-right: 50px; /* на мобильном можно чуть меньше места справа */
+  }
+
+  .search-bar button {
+    right: 50px;
+  }
+
+  .advanced-icon-container {
+    right: 10px;
+  }
+}
